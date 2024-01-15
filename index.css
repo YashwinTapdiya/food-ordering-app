@@ -95,3 +95,8 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+.filter-btn{
+  margin: 10px;
+  cursor: pointer;
+}
