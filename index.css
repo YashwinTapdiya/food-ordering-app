@@ -72,6 +72,7 @@
   padding: 5px;
   /* padding-bottom: 20px; */
   border: 1px solid transparent;
+  background-color: #f0f0f0;
 }
 
 .res-card:hover {
@@ -99,4 +100,17 @@
 .filter-btn{
   margin: 10px;
   cursor: pointer;
+}
+
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.shimmer-card{
+  margin: 20px;
+  width: 200px;
+  height: 350px;
+  background-color: #f0f0f0;
 }
