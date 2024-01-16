@@ -97,24 +97,28 @@
   text-align: center;
 }
 
-.filter-btn{
+.filter-btn {
   margin: 10px;
   cursor: pointer;
 }
 
-.shimmer-container{
+.shimmer-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.shimmer-card{
+.shimmer-card {
   margin: 20px;
   width: 200px;
   height: 350px;
   background-color: #f0f0f0;
 }
 
-.login-btn{
+.login-btn {
   padding: 0 20px;
+}
+
+.filter {
+  display: flex;
 }
