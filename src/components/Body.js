@@ -21,24 +21,22 @@ const Body = () => {
 
     const json = await data.json();
     //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.id);
-    
+
     setlistOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  if(listOfRestaurants.length === 0){
-    return <Shimmer/>;
-  }
-
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
             const filtered = listOfRestaurants.filter(
-              (res) => res.info.avgRating>4.2
+              (res) => res.info.avgRating > 4.2
             );
             setlistOfRestaurants(filtered);
           }}
