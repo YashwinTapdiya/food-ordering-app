@@ -1,6 +1,7 @@
 import RestaurantCart from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //Local State Variable - Super Powerful variable
@@ -55,6 +56,7 @@ const Body = () => {
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setfilteredRestaurants(filteredRestaurant);
+              setsearchText("");
               console.log(searchText);
             }}
           >
@@ -76,7 +78,13 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurants.map((resturant) => {
           return (
-            <RestaurantCart key={resturant?.info?.id} resData={resturant} />
+            <Link
+              key={resturant?.info?.id}
+              to={"/restaurants/" + resturant?.info?.id}
+            >
+              {" "}
+              <RestaurantCart resData={resturant} />
+            </Link>
           );
         })}
       </div>
