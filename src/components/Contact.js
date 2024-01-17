@@ -4,7 +4,7 @@ import Header from './Header'
 const Contact = () => {
   return (
     <div>
-        Contact Us Page
+        <h1>Contact Us Page</h1>
     </div>
   )
 }
