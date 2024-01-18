@@ -34,15 +34,17 @@ const RestaurantCart = (props) => {
 
 //input - RestaurantCar => RestauratnCardWith Discount Tag
 
-export const withDiscountLabel = (RestaurantCart)=>{
-  return (props)=>{
+export const withDiscountLabel = (RestaurantCart) => {
+  return (props) => {
     return (
       <div>
-        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Discount</label>
-        <RestaurantCart {...props}/>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          Discount
+        </label>
+        <RestaurantCart {...props} />
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default RestaurantCart;

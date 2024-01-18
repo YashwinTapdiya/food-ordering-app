@@ -1,4 +1,4 @@
-import RestaurantCart, {withDiscountLabel} from "./RestaurantCard";
+import RestaurantCart, { withDiscountLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const [searchText, setSearchText] = useState("");
-  
+
   const RestaurantCardDiscount = withDiscountLabel(RestaurantCart);
 
   console.log(listOfRestaurants);
@@ -43,7 +43,7 @@ const Body = () => {
     <div className="body">
       <div className="flex justify-between">
         <div className="p-4 m-4 search">
-        <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               data-testid="searchInput"
@@ -68,17 +68,17 @@ const Body = () => {
           </form>
         </div>
         <div className="flex items-center p-4 m-4 search">
-        <button
-          className="px-4 py-2 m-4 bg-gray-100 shadow-md hover:bg-gray-200 duration-[.3s] rounded-lg font-medium"
-          onClick={() => {
-            const filtered = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4.2
-            );
-            setFilteredRestaurants(filtered);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+          <button
+            className="px-4 py-2 m-4 bg-gray-100 shadow-md hover:bg-gray-200 duration-[.3s] rounded-lg font-medium"
+            onClick={() => {
+              const filtered = listOfRestaurants.filter(
+                (res) => res.info.avgRating > 4.2
+              );
+              setFilteredRestaurants(filtered);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
         </div>
       </div>
       <div className="flex flex-wrap justify-center">
@@ -89,7 +89,12 @@ const Body = () => {
               to={"/restaurants/" + resturant?.info?.id}
             >
               {" "}
-              {resturant.info.aggregatedDiscountInfoV3.discountTag === undefined ? (<RestaurantCart resData={resturant} />): (<RestaurantCardDiscount resData={resturant} />)}
+              {resturant.info.aggregatedDiscountInfoV3.discountTag ===
+              undefined ? (
+                <RestaurantCart resData={resturant} />
+              ) : (
+                <RestaurantCardDiscount resData={resturant} />
+              )}
             </Link>
           );
         })}

@@ -11,10 +11,11 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
 
-  console.log(
-    resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
-  );
-  const { itemCard } =
+  // console.log(
+  //   resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
+  // );
+  //console.log(resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card);
+  const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   return (
     <div className="text-center">
@@ -22,11 +23,13 @@ const RestaurantMenu = () => {
       <p className="text-lg font-bold">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <h2>Menu</h2>    
+      <h2>Menu</h2>
       <ul>
-        <li>{}</li>
-        <li>Jalebi</li>
-        <li>Kachori</li>
+        {itemCards.map((item) => (
+          <li key={item.card.info.id}>
+            {item.card.info.name} - Rs.{item.card.info.price / 100}
+          </li>
+        ))}
       </ul>
     </div>
   );

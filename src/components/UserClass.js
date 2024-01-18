@@ -32,8 +32,9 @@ class UserClass extends React.Component {
     return (
       <div className="user-card">
         <h2>{user.name}</h2>
-        <h2>Location: {user.location}</h2>
+        <h2>Location: {"Indore"}</h2>
         <h4>Contact: 8085720505</h4>
+        <h4>GitHub Url: {user.html_url}</h4>
       </div>
     );
   }

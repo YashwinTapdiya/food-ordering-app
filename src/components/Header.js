@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
-  const [loginButton, setloginButton] = useState("login");
+  const [loginButton, setloginButton] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
     <header className="flex justify-between bg-pink-200 sm:bg-yellow-200 lg:bg-green-200 font-[500] shadow-md">
@@ -35,9 +35,9 @@ const Header = () => {
           <button
             className="px-4 hover:text-green-500 duration-[.3s]"
             onClick={() => {
-              loginButton === "login"
-                ? setloginButton("log-out")
-                : setloginButton("login");
+              loginButton === "Login"
+                ? setloginButton("Log-out")
+                : setloginButton("Login");
             }}
           >
             {loginButton}
