@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 const Body = () => {
   //Local State Variable - Super Powerful variable
 
-  const [listOfRestaurants, setlistOfRestaurants] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
-  const [filteredRestaurants, setfilteredRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
-  const [searchText, setsearchText] = useState("");
+  const [searchText, setSearchText] = useState("");
   //Noraml JS Varialbe
 
   //takes a call back function and dependency array as arguments
@@ -27,10 +27,10 @@ const Body = () => {
     const json = await data.json();
     //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.id);
 
-    setlistOfRestaurants(
+    setListOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setfilteredRestaurants(
+    setFilteredRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -39,43 +39,47 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input
-            type="text"
-            className="search-box"
-            value={searchText}
-            onChange={(e) => {
-              setsearchText(e.target.value);
-            }}
-          />
-          <button
-            className="serach-btn"
-            onClick={() => {
-              const filteredRestaurant = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setfilteredRestaurants(filteredRestaurant);
-              setsearchText("");
-              console.log(searchText);
-            }}
-          >
-            Search
-          </button>
+      <div className="flex justify-between">
+        <div className="p-4 m-4 search">
+        <form onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              data-testid="searchInput"
+              placeholder="Search a restaurant you want..."
+              className="px-4 py-2 border-0 border-transparent shadow-md font-medium bg-gray-100 rounded-md focus:border-0 focus:outline-0 w-[300px] placeholder:font-medium focus:border-b-2 focus:border-green-500"
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
+            <button
+              className="px-4 py-2 m-4 bg-green-100 rounded-lg shadow-md hover:bg-green-300 duration-[.3s] font-medium"
+              onClick={() => {
+                const filteredRestaurant = listOfRestaurants.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setFilteredRestaurants(filteredRestaurant);
+              }}
+            >
+              Search
+            </button>
+          </form>
         </div>
+        <div className="flex items-center p-4 m-4 search">
         <button
-          className="filter-btn"
+          className="px-4 py-2 m-4 bg-gray-100 shadow-md hover:bg-gray-200 duration-[.3s] rounded-lg font-medium"
           onClick={() => {
             const filtered = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.2
             );
-            setfilteredRestaurants(filtered);
+            setFilteredRestaurants(filtered);
           }}
         >
           Top Rated Restaurants
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center">
         {filteredRestaurants.map((resturant) => {
           return (
             <Link

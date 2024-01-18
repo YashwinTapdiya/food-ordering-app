@@ -1,17 +1,15 @@
-import React from "react";
-
 const Shimmer = () => {
   return (
-    <div className="shimmer-container">
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
-      <div className="shimmer-card">Card</div>
+    <div className="flex flex-wrap justify-center gap-[40px_25px] mt-[105px]">
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
+      <div className=" w-[250px] h-[400px] bg-[#efefef] cursor-pointer rounded-[11px]"></div>
     </div>
   );
 };

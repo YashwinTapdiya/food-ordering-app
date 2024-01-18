@@ -1,19 +1,31 @@
 import { CON_URL } from "../utils/constants";
 const RestaurantCart = (props) => {
   const { resData } = props;
-  const { name, cuisines, avgRating, costForTwo, cloudinaryImageId } =
+  const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } =
     resData?.info;
   return (
-    <div className="res-card">
-      <img
-        className="res-logo"
-        alt="res-log"
-        src={CON_URL + cloudinaryImageId}
-      />
-      <h3>{name}</h3>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{avgRating} stars</h4>
-      <h4>{costForTwo}</h4>
+    <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:shadow-md hover:bg-gray-200 transition-all ">
+      <div>
+        <img
+          className="w-[250px] h-[150px] rounded-lg"
+          alt="res-log"
+          src={CON_URL + cloudinaryImageId}
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="py-4 text-lg font-bold">{name}</h3>
+        <hr />
+        <em>{cuisines.join(", ")}</em>
+        <h4 className="flex items-center gap-2">
+          <span>{avgRating} stars</span>
+        </h4>
+        <h4 className="flex items-center gap-2">
+          <span>{costForTwo}</span>
+        </h4>
+        <h4 className="flex items-center gap-2">
+          <span>{sla.deliveryTime} minutes</span>
+        </h4>
+      </div>
     </div>
   );
 };
