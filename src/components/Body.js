@@ -2,6 +2,7 @@ import RestaurantCart, { withDiscountLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { RES_API } from "../utils/constants";
 
 const Body = () => {
   //Local State Variable - Super Powerful variable
@@ -14,17 +15,15 @@ const Body = () => {
 
   const RestaurantCardDiscount = withDiscountLabel(RestaurantCart);
 
-  console.log(listOfRestaurants);
+  //console.log(listOfRestaurants);
   //takes a call back function and dependency array as arguments
   useEffect(() => {
-    console.log("UseEffect Called");
+    //console.log("UseEffect Called");
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RES_API);
 
     const json = await data.json();
     //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.id);

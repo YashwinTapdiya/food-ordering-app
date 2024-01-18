@@ -1,4 +1,4 @@
-import { CON_URL } from "../utils/constants";
+import { CDN_URL } from "../utils/constants";
 const RestaurantCart = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } =
@@ -9,7 +9,7 @@ const RestaurantCart = (props) => {
         <img
           className="w-[250px] h-[150px] rounded-lg"
           alt="res-log"
-          src={CON_URL + cloudinaryImageId}
+          src={CDN_URL + cloudinaryImageId}
         />
       </div>
       <div className="flex flex-col gap-2">
