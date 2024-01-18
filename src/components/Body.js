@@ -1,4 +1,4 @@
-import RestaurantCart from "./RestaurantCard";
+import RestaurantCart, {withDiscountLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,8 +11,10 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const [searchText, setSearchText] = useState("");
-  //Noraml JS Varialbe
+  
+  const RestaurantCardDiscount = withDiscountLabel(RestaurantCart);
 
+  console.log(listOfRestaurants);
   //takes a call back function and dependency array as arguments
   useEffect(() => {
     console.log("UseEffect Called");
@@ -87,7 +89,7 @@ const Body = () => {
               to={"/restaurants/" + resturant?.info?.id}
             >
               {" "}
-              <RestaurantCart resData={resturant} />
+              {resturant.info.aggregatedDiscountInfoV3.discountTag === undefined ? (<RestaurantCart resData={resturant} />): (<RestaurantCardDiscount resData={resturant} />)}
             </Link>
           );
         })}
