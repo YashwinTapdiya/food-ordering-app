@@ -1,25 +1,23 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-
   const [loginButton, setloginButton] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  const {loggedInUser} = useContext(UserContext);
-  const {user} = useSelector({store})
+  const { loggedInUser } = useContext(UserContext);
+
+  //subscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
+  // console.log(cartItems.length);
   return (
     <header className="flex justify-between bg-pink-200 sm:bg-yellow-200 lg:bg-green-200 font-[500] shadow-md">
       <div className="logo-container">
         <Link to="/">
-          <img
-            src={LOGO_URL}
-            alt="Logo"
-            className="w-16 mx-6 mt-2"
-          />
+          <img src={LOGO_URL} alt="Logo" className="w-16 mx-6 mt-2" />
         </Link>
       </div>
       <div className="flex items-center">
@@ -38,7 +36,7 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="px-4 hover:text-green-500 duration-[.3s]">
-            <Link to="/cart">🛒(0 items)</Link>
+            <Link to="/cart">🛒({cartItems.length} items)</Link>
           </li>
           <button
             className="px-4 hover:text-green-500 duration-[.3s]"
