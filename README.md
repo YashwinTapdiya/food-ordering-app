@@ -3,6 +3,10 @@ A React-fueled web app turning menu exploration into a coding adventure!
 Order food from the confort of your home, we show the latest restaurants available in Delhi, with all the details. 
 Pick a dish, add to cart.
 
+## 🔗 Live link
+
+**[https://food-ordering-app-mocha.vercel.app/](https://food-ordering-app-mocha.vercel.app/)**
+
 ## 📓Features 
 - Implemented dynamic routing using *react-router-dom*
 - Utilized *Redux Toolkit* for efficient cart management
@@ -36,3 +40,14 @@ Pick a dish, add to cart.
 
 ## ScreenShots
 
+- Home Page
+    ![Home Page](https://raw.githubusercontent.com/YashwinTapdiya/food-ordering-app/main/src/assets/1-home_page.png)
+
+- Shimmer UI
+    ![Shimmer UI](https://raw.githubusercontent.com/YashwinTapdiya/food-ordering-app/main/src/assets/2-shimmer.png)
+
+- Menu
+    ![Menu](https://raw.githubusercontent.com/YashwinTapdiya/food-ordering-app/main/src/assets/3-menu.png)
+
+- Cart
+    ![Cart](https://raw.githubusercontent.com/YashwinTapdiya/food-ordering-app/main/src/assets/4-cart.png)
