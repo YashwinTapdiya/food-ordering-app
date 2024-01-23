@@ -1,6 +1,6 @@
 import RestaurantCart, { withDiscountLabel } from "./RestaurantCard";
 import { useState, useEffect, useContext } from "react";
-import Shimmer from "./Shimmer";
+import ShimmerHome from "./ShimmerHome";
 import { Link } from "react-router-dom";
 import { RES_API } from "../utils/constants";
 import UserContext from "../utils/UserContext";
@@ -30,17 +30,17 @@ const Body = () => {
     //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.id);
 
     setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
   const { loggedInUser, setUserName } = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
-    <Shimmer />
+    <ShimmerHome />
   ) : (
     <div className="body">
       <div className="flex justify-between">

@@ -17,6 +17,11 @@ const Cart = () => {
       >
         Clear Cart
       </button>
+      {cartItems.length === 0 && (
+        <h2 className="text-xl mt-6 font-medium">
+          Your cart is empty, Add some items to the cart 🛒.
+        </h2>
+      )}
       <div className="w-6/12 m-auto">
         <ItemList items={cartItems} />
       </div>
