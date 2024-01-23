@@ -23,7 +23,7 @@ const Cart = () => {
         </h2>
       )}
       <div className="w-6/12 m-auto">
-        <ItemList items={cartItems} />
+        <ItemList items={cartItems} fromcart={true} />
       </div>
     </div>
   );
