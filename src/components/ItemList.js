@@ -32,7 +32,7 @@ const ItemList = ({ items }) => {
           <div className="w-3/12 p-4">
             <div className="absolute">
               <button
-                className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
+                className="p-2 mx-8 rounded-lg bg-black text-sm text-white shadow-lg"
                 onClick={()=>handleAddItem(item)}
               >
                 ADD +
@@ -40,7 +40,7 @@ const ItemList = ({ items }) => {
             </div>
             <img
               src={CDN_URL + item.card.info.imageId}
-              className="w-full rounded-md"
+              className="w-3/5 m-auto rounded-md"
             />
           </div>
         </div>

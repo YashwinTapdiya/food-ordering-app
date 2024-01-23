@@ -17,7 +17,7 @@ const RestaurantCart = (props) => {
         <hr />
         <em>{cuisines.join(", ")}</em>
         <h4 className="flex items-center gap-2">
-          <span>{avgRating} stars</span>
+          <span>{avgRating} ⭐</span>
         </h4>
         <h4 className="flex items-center gap-2">
           <span>{costForTwo}</span>

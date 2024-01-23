@@ -31,11 +31,11 @@ class UserClass extends React.Component {
     const { user } = this.state;
     //console.log("child render");
     return (
-      <div className="user-card">
-        <h2>{user.name}</h2>
+      <div className="pt-2">
+        <h2 className="font-bold">{user.name}</h2>
         <h2>Location: {"Indore"}</h2>
         <h4>Contact: 8085720505</h4>
-        <h4>GitHub Url: {user.html_url}</h4>
+        <a href="https://github.com/YashwinTapdiya/food-ordering-app" target="_blank"><h4>GitHub Url: {user.html_url}</h4></a>
         <UserContext.Consumer>
           {(data)=> console.log(data)}
         </UserContext.Consumer>

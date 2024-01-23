@@ -9,8 +9,8 @@ class About extends React.Component {
   render() {
     //console.log("Parent Render");
     return (
-      <div>
-        <h1>About</h1>
+      <div className="p-10 m-4 text-center">
+        <h1 className="font-bold">About Us Page</h1>
         <UserClass name={"yashwin tapdiya"} location={"Indore"} />
       </div>
     );

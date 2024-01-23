@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
 
   const resInfo = useRestaurantMenu(resId);
 
-  const [showIndex,setShowIndex] = useState(null);
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return <ShimmerMenu />;
   const { name, cuisines, costForTwoMessage } =
@@ -28,6 +28,9 @@ const RestaurantMenu = () => {
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
+  const toggleAccordion = (index) => {
+    setShowIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
   return (
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl">{name}</h1>
@@ -35,13 +38,13 @@ const RestaurantMenu = () => {
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
       {/* categories accordions */}
-      {categories.map((category,index) => (
+      {categories.map((category, index) => (
         //controlled component
         <RestaurantCategory
           key={category?.card?.card.title}
           data={category?.card?.card}
-          showItems={index===showIndex ? true : false}
-          setShowIndex = {()=> setShowIndex(index)}
+          showItems={index === showIndex}
+          setShowIndex={() => toggleAccordion(index)}
         />
       ))}
     </div>
