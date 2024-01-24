@@ -27,7 +27,7 @@ const Body = () => {
     const data = await fetch(RES_API);
 
     const json = await data.json();
-    //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.id);
+    //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info);
 
     setListOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -94,11 +94,12 @@ const Body = () => {
       <div className="flex flex-wrap justify-center">
         {filteredRestaurants.map((resturant) => {
           return (
+            
             <Link
               key={resturant?.info?.id}
               to={"/restaurants/" + resturant?.info?.id}
             >
-              {resturant.info.aggregatedDiscountInfoV3.discountTag ===
+              {resturant?.info?.aggregatedDiscountInfoV3?.discountTag ===
               undefined ? (
                 <RestaurantCart resData={resturant} />
               ) : (
